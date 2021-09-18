@@ -3,9 +3,11 @@ import { shallow } from "enzyme";
 import NumberofEvents from "../NumberofEvents";
 
 describe("<NumberofEvents /> component", () => {
-  let NumberofEventsWrapper;
+  let numberOfEvents, NumberofEventsWrapper;
   beforeAll(() => {
-    NumberofEventsWrapper = shallow(<NumberofEvents />);
+    NumberofEventsWrapper = shallow(
+      <NumberofEvents numberOfEvents={numberOfEvents} updateEvents={() => {}} />
+    );
   });
 
   test("textbox element is rendered", () => {
@@ -15,17 +17,17 @@ describe("<NumberofEvents /> component", () => {
   test("change state when text input changes", () => {
     const NumberofEventsWrapper = shallow(<NumberofEvents />);
     NumberofEventsWrapper.setState({
-      query: "32",
+      numberOfEvents: "32",
     });
     const eventObject = { target: { value: "12" } };
     NumberofEventsWrapper.find(".EventsNumber").simulate("change", eventObject);
-    expect(NumberofEventsWrapper.state("query")).toBe("12");
+    expect(NumberofEventsWrapper.state("numberOfEvents")).toBe("12");
   });
 
   test("renders text input correctly", () => {
-    const query = NumberofEventsWrapper.state("query");
+    const numberOfEvents = NumberofEventsWrapper.state("numberOfEvents");
     expect(NumberofEventsWrapper.find(".EventsNumber").prop("value")).toBe(
-      query
+      numberOfEvents
     );
   });
 });
