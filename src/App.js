@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import EventList from "./EventList";
 import CitySearch from "./CitySearch";
-import NumberofEvents from "./NumberofEvents";
+import NumberOfEvents from "./NumberOfEvents";
 import { getEvents, extractLocations } from "./api";
 import "./nprogress.css";
 
@@ -51,7 +51,7 @@ class App extends Component {
           updateEvents={this.updateEvents}
         />
         <EventList events={this.state.events} />
-        <NumberofEvents />
+        <NumberOfEvents />
       </div>
     );
   }

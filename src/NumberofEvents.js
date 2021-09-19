@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-class NumberofEvents extends Component {
+class NumberOfEvents extends Component {
   state = {
-    numberOfEvents: 32,
+    numberOfEvents: 12,
   };
 
   handleInputChanged = (event) => {
@@ -12,7 +12,7 @@ class NumberofEvents extends Component {
 
   render() {
     return (
-      <div className="NumberofEvents">
+      <div className="NumberOfEvents">
         <input
           type="text"
           className="EventsNumber"
@@ -24,4 +24,4 @@ class NumberofEvents extends Component {
   }
 }
 
-export default NumberofEvents;
+export default NumberOfEvents;
