@@ -11,7 +11,6 @@ class App extends Component {
     events: [],
     locations: [],
     numberOfEvents: 12,
-    currentLocation: "all",
   };
 
   componentDidMount() {
