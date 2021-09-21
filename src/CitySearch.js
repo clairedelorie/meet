@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import { InfoAlert } from "./Alert";
 
 class CitySearch extends Component {
   state = {
     query: "",
     suggestions: [],
     showSuggestions: undefined,
+    infoText: "...",
   };
 
   handleInputChanged = (event) => {
@@ -12,10 +14,20 @@ class CitySearch extends Component {
     const suggestions = this.props.locations.filter((location) => {
       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
     });
-    this.setState({
-      query: value,
-      suggestions,
-    });
+    if (suggestions.length === 0) {
+      this.setState({
+        query: suggestions,
+        suggestions: [],
+        showSuggestions: false,
+        infoText: "No city found",
+      });
+    } else {
+      return this.setState({
+        query: value,
+        suggestions,
+        infoText: "...",
+      });
+    }
   };
 
   handleItemClicked = (suggestion) => {
@@ -33,6 +45,7 @@ class CitySearch extends Component {
         <input
           type="text"
           className="city"
+          placeholder="Search for a city..."
           value={this.state.query}
           onChange={this.handleInputChanged}
           onFocus={() => {
@@ -43,7 +56,6 @@ class CitySearch extends Component {
           className="suggestions"
           style={this.state.showSuggestions ? {} : { display: "none" }}
         >
-          {" "}
           {this.state.suggestions.map((suggestion) => (
             <li
               key={suggestion}
@@ -54,7 +66,8 @@ class CitySearch extends Component {
           ))}
           <li onClick={() => this.handleItemClicked("all")}>
             <b>See all cities</b>
-          </li>{" "}
+          </li>
+          <InfoAlert text={this.state.infoText} />
         </ul>
       </div>
     );
