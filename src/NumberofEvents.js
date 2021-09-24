@@ -7,30 +7,32 @@ class NumberOfEvents extends Component {
     errorText: "",
   };
 
-  updateEventCount = (eventCount) => {
-    if (eventCount < 1 || eventCount > 32) {
-      return this.setState({
-        numberOfEvents: 0,
-        errorText: "Please select a number between 1-32",
+  handleInputChanged = (event) => {
+    const value = event.target.value;
+    if (!(value <= 32) || !(value > 0)) {
+      this.setState({
+        numberOfEvents: value,
+        errorText: "Please enter a number between 1 and 32.",
       });
     } else {
       this.setState({
-        numberOfEvents: eventCount,
+        numberOfEvents: value,
         errorText: "",
       });
+      this.props.updateEventCount(event.target.value);
     }
   };
 
   render() {
     return (
       <div className="NumberOfEvents">
+        <ErrorAlert text={this.state.errorText} />
         <input
-          type="number"
+          type="text"
           className="EventsNumber"
           value={this.state.numberOfEvents}
-          onChange={(e) => this.updateEventCount(e.target.value)}
+          onChange={(e) => this.handleInputChanged(e)}
         />
-        <ErrorAlert text={this.state.errorText} />
       </div>
     );
   }
