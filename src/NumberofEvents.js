@@ -19,13 +19,13 @@ class NumberOfEvents extends Component {
         numberOfEvents: value,
         errorText: "",
       });
-      this.props.updateEventCount(event.target.value);
     }
   };
 
   render() {
     return (
       <div className="NumberOfEvents">
+        <p>Enter the number of events you'd like to see</p>
         <ErrorAlert text={this.state.errorText} />
         <input
           type="text"
