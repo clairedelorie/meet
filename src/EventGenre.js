@@ -3,11 +3,12 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from "recharts";
 
 const EventGenre = ({ events }) => {
   const [data, setData] = useState([]);
-  const genres = ["React", "JavaScript", "Node", "jQuery", "AngularJS"];
 
   const colors = ["#8884d7", "#d1ed57", "#a4de6b", "#8dd1e1", "#82a6ec"];
 
-  const getData = () => {
+  useEffect(() => {
+    const genres = ["React", "JavaScript", "Node", "jQuery", "AngularJS"];
+
     const data = genres.map((genre) => {
       const value = events.filter((event) =>
         event.summary.split(" ").includes(genre)
@@ -17,11 +18,7 @@ const EventGenre = ({ events }) => {
         value,
       };
     });
-    return data;
-  };
-
-  useEffect(() => {
-    setData(() => getData());
+    setData(data);
   }, [events]);
 
   return (

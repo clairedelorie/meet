@@ -31,7 +31,7 @@ class App extends Component {
   async componentDidMount() {
     this.mounted = true;
     const accessToken = localStorage.getItem("access_token");
-    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    const isTokenValid = (await checkToken(accessToken)).error;
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get("code");
 
@@ -70,7 +70,7 @@ class App extends Component {
           : events.filter((event) => event.location === location);
 
       this.setState({
-        events: locationEvents,
+        events: locationEvents.slice(0, this.state.numberOfEvents),
         currentLocation: location,
       });
     });
@@ -82,7 +82,7 @@ class App extends Component {
       numberOfEvents: eventCount,
     });
 
-    this.updateEvents(currentLocation, eventCount);
+    this.updateEvents(currentLocation);
   };
 
   getData = () => {
