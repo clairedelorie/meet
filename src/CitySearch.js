@@ -6,7 +6,7 @@ class CitySearch extends Component {
     query: "",
     suggestions: [],
     showSuggestions: undefined,
-    infoText: "...",
+    infoText: "",
   };
 
   handleInputChanged = (event) => {
@@ -25,7 +25,7 @@ class CitySearch extends Component {
       return this.setState({
         query: value,
         suggestions,
-        infoText: "...",
+        infoText: "",
       });
     }
   };
@@ -67,8 +67,8 @@ class CitySearch extends Component {
           <li onClick={() => this.handleItemClicked("all")}>
             <b>See all cities</b>
           </li>
-          <InfoAlert text={this.state.infoText} />
         </ul>
+        <InfoAlert text={this.state.infoText} />
       </div>
     );
   }

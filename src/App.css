@@ -2,6 +2,8 @@
 .App {
   text-align: center;
   padding: 2% 5%;
+  background-color: rgb(56, 56, 56);
+  color: white;
 }
 
 .App * {
@@ -20,8 +22,11 @@ p {
 .display-none {
   display: none;
 }
-.showSuggestions {
-  display: block;
+
+.title-logo {
+  width: 100%;
+  max-width: 250px;
+  padding-top: 25px;
 }
 
 input[type="text"],
@@ -34,6 +39,7 @@ input[type="number"] {
   line-height: 20px;
   align-self: center;
   height: 38px;
+  width: 250px;
 }
 
 .city {
@@ -41,21 +47,19 @@ input[type="number"] {
 }
 
 .CitySearch {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 300px;
-  max-width: 300px;
-  margin: auto;
+  max-width: fit-content;
+  margin: 0 auto;
+  padding-top: 20px;
+  align-items: center;
+  font-size: 12pt;
   position: relative;
 }
 
 .suggestions {
   width: 250px;
-  position: absolute;
   z-index: 2;
   align-self: center;
   margin: 0;
-  top: 43px;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
 }
@@ -63,8 +67,9 @@ input[type="number"] {
 .suggestions > li {
   text-align: left;
   padding: 8px 6px 8px 10px;
-  background-color: #eee;
+  background-color: rgb(46, 178, 211);
   cursor: default;
+  align-self: center;
 }
 
 .suggestions > li:last-child {
@@ -73,7 +78,7 @@ input[type="number"] {
 }
 
 .suggestions > li:hover {
-  background-color: #bcdcdb;
+  background-color: rgb(34, 128, 165);
 }
 
 .event {
@@ -83,6 +88,13 @@ input[type="number"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   position: relative;
+}
+
+.EventList {
+  justify-items: stretch;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .details-btn {
@@ -114,10 +126,13 @@ input[type="number"] {
   overflow-x: hidden;
 }
 
-.numberOfEvents {
-  width: 200px;
-  margin: 20px auto;
-  text-align: center;
+.NumberOfEvents {
+  max-width: fit-content;
+  margin: 0 auto;
+  padding-top: 20px;
+  align-items: center;
+  font-size: 12pt;
+  position: relative;
 }
 
 .button-wrapper {
@@ -129,18 +144,24 @@ input[type="number"] {
 }
 
 .Alert {
-  position: fixed;
-  top: 20px;
+  position: absolute;
+  top: 100%;
 }
 
 .data-vis-wrapper {
   display: flex;
   align-items: center;
   flex-direction: column;
+  border: #fff;
+  font-size: 14tpt;
+  flex-wrap: wrap;
+  justify-items: stretch;
 }
-.data-vis-wrapper .recharts-responsive-container {
-  min-width: 100%;
-  display: flex;
+
+.recharts-responsive-container {
+  width: 100%;
+  padding-bottom: 100px;
+  margin: 20px 0px;
 }
 .recharts-surface {
   overflow: visible;
@@ -160,7 +181,7 @@ input[type="number"] {
 }
 
 .google-btn {
-  width: 184px;
+  width: 120px;
   height: 42px;
   margin: 1rem;
   background-color: #4285f4;
@@ -196,6 +217,72 @@ input[type="number"] {
   font-size: 14px;
   letter-spacing: 0.2px;
   font-family: "Roboto";
+}
+
+.card {
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-width: 600px;
+  margin: 10px auto;
+  justify-self: stretch;
+}
+
+.card-header {
+  font-weight: bold;
+  width: 100%;
+  padding: 10px !important;
+}
+
+.card-text {
+  padding: 5px;
+  margin: 5px;
+}
+
+.showMore {
+  width: 200px;
+  height: 40px;
+  margin: 15px auto 5px;
+  border-radius: 4px;
+  border: none !important;
+  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+  background-size: 300% 100%;
+  color: #fff;
+  cursor: pointer;
+  background-color: rgb(11, 153, 163);
+}
+
+.showLess {
+  width: 200px;
+  height: 40px;
+  margin: 15px auto 5px;
+  border-radius: 4px;
+  border: none !important;
+  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+  background-size: 300% 100%;
+  color: #fff;
+  cursor: pointer;
+  background-color: rgb(11, 153, 163);
+}
+
+.event-card {
+  justify-self: stretch;
+  margin: 10px;
+}
+
+.scatter-chart {
+  padding-right: 10px;
+  border: black;
+  min-width: 400px;
+  height: 400px;
+}
+
+.pie-chart {
+  min-width: 400px;
+  height: 400px;
+  padding-left: 20px;
 }
 
 @media only screen and (min-width: 992px) {
