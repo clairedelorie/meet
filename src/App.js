@@ -126,7 +126,10 @@ class App extends Component {
 
         <Row className="choose-city">
           Choose your nearest city
-          <Col className="city-search">
+          <Col
+            className="city-search"
+            style={{ display: this.state.showWelcomeScreen ? "none" : "block" }}
+          >
             <CitySearch
               updateEvents={this.updateEvents}
               locations={locations}
@@ -134,7 +137,10 @@ class App extends Component {
           </Col>
         </Row>
 
-        <Row className="number-of-events">
+        <Row
+          className="number-of-events"
+          style={{ display: this.state.showWelcomeScreen ? "none" : "block" }}
+        >
           <Col>
             <NumberOfEvents
               numberOfEvents={numberOfEvents}
@@ -143,7 +149,10 @@ class App extends Component {
           </Col>
         </Row>
         <Row className="data-visualization">
-          <div className="data-vis-wrapper">
+          <div
+            className="data-vis-wrapper"
+            style={{ display: this.state.showWelcomeScreen ? "none" : "block" }}
+          >
             <div className="pie-chart">
               <EventGenre events={events} />
             </div>
@@ -168,7 +177,10 @@ class App extends Component {
           </div>
         </Row>
         <h2>Events near you</h2>
-        <Row className="event-list">
+        <Row
+          className="event-list"
+          style={{ display: this.state.showWelcomeScreen ? "none" : "block" }}
+        >
           <Col md={12}>
             <EventList events={events} />
           </Col>
