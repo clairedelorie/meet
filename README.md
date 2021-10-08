@@ -2,7 +2,7 @@
 
 ---
 
-![meet up screen]("C:\Users\delor\meet\src\meet up.png")
+![meet up screen](\src\meet up.png)
 
 ---
 
