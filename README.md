@@ -2,7 +2,7 @@
 
 ---
 
-![meet up screen](/src/meet up.png)
+![meet up screen](src/meet%20up.png)
 
 ---
 
